@@ -1,0 +1,453 @@
+package Ragnarlothbrok;
+
+import java.awt.BorderLayout;import java.awt.Color;
+import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.ImageIcon;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
+import javax.swing.JProgressBar;
+import javax.swing.JTextField;
+
+public class Ragnarmain implements ActionListener{
+	//All FRAMES 
+	
+	JFrame ragframe;
+	JFrame abouframe;
+	
+	
+	//ALL LABELS
+	JLabel bakgred;
+	JLabel powerful;
+	//ALL IMAGES
+	ImageIcon viki;
+	ImageIcon backviki;
+	//ALL PANELS
+	JPanel dokmeha;
+	
+	//ALL character  BUTTONS
+	JButton   ragnarbut;
+	JButton   lagerthabut;
+	JButton    flokibut;
+	JButton    rollobut;
+	JButton    haraldbut;
+	//ALL TOOLS BUTTONS
+	JButton bladebut;
+	JButton  engineerbut;
+	JButton   unreasonablebut;
+	JButton   revengebut;
+	JButton   intelligencebut;
+	//ALL PLACES IN BUTTONS
+	JButton   scandinaviabut;
+	JButton   norwaybut;
+	JButton   seabut;
+	JButton    francebut;
+	JButton    icelandbutt;
+	JButton    restart;
+	//COMPUTING
+	JButton computingbut;
+	
+	//COMPOITION JAVAB TEXTFIELD
+	JTextField analystxt;
+	
+	
+	//Progressbar
+	JProgressBar prgressq;
+	//Menuitem
+	JMenuBar mainmenu;
+	JMenu help; 
+	JMenuItem about;
+	
+	
+	String[] flokioption={"Floki ", "engineer ", "Iceland "};
+	String[] ragnarst={"Ragnar ","intelligence ", "Sea "};
+	String[] rollofo={"Rollo ","Revenge ", "France "};
+	String[] laghertaf={"Lagertha ","Blade ","Scandinavia "};
+	String[] haraldoo={"Harald ","Unreasonable ","Norway "};
+	
+	
+	
+	int sasha=0;
+	
+	Ragnarmain(){
+		
+		String tozih="Enter according to the pattern : Character / Tool / Place";
+		
+	
+		
+		
+		//images-------------------------------------------------
+		
+		viki=new ImageIcon("vikingslogo.png");
+		backviki=new ImageIcon("ragd.png");
+		
+		//frames--------------------------------
+		ragframe=new JFrame();
+		ragframe.setVisible(true);
+		ragframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		ragframe.setExtendedState(JFrame.MAXIMIZED_BOTH); 
+		ragframe.setTitle("Vikings World");
+		ragframe.setResizable(false);
+		ragframe.setLayout(new BorderLayout());
+		ragframe.setLocationRelativeTo(null);
+		ragframe.setIconImage(viki.getImage());
+		
+		
+		
+		
+		//for labels
+		bakgred=new JLabel();
+		bakgred.setBackground(Color.white);
+		bakgred.setIcon(backviki);
+
+		powerful=new JLabel();
+		powerful.setBounds(300,260, 1000, 555);
+		powerful.setForeground(Color.white);
+		powerful.setFont(new Font("Chica mono",Font.PLAIN,30));
+		
+		
+		
+		//panels--------------------------------------------
+		
+		dokmeha=new JPanel();
+		dokmeha.setBounds(0, 0, 888, 888);
+		dokmeha.add(bakgred);
+		
+		//Buttons-------------------------------------------
+		   restart=new JButton("Restart");
+		   bakgred.add(restart);
+		   restart.setBounds(1300, 50, 110, 40);
+		   restart.addActionListener(this);
+		   restart.setFont(new Font("Constantia",Font.PLAIN,14));
+		    
+		    ragnarbut=new JButton("Ragnar");
+		    bakgred.add(ragnarbut);
+		    ragnarbut.setFont(new Font("Constantia",Font.BOLD,14));
+		    ragnarbut.setBounds(470, 222, 110, 40);
+		    ragnarbut.addActionListener(this);
+		  
+		    lagerthabut=new JButton("Lagertha");
+		    bakgred.add(lagerthabut);
+		    lagerthabut.setFont(new Font("Constantia",Font.BOLD,14));
+		    lagerthabut.setBounds(714, 270, 110, 40);
+		    lagerthabut.addActionListener(this);
+		    
+		  
+		    flokibut=new JButton("Floki");
+		    bakgred.add(flokibut);
+		    flokibut.setFont(new Font("Constantia",Font.BOLD,14));
+		    flokibut.setBounds(592, 222, 110, 40);
+		    flokibut.addActionListener(this);
+		   
+		   
+		    
+		    rollobut=new JButton("Rollo");
+		    bakgred.add(rollobut);
+		    rollobut.setFont(new Font("Constantia",Font.BOLD,14));
+		    rollobut.setBounds(592, 414, 110, 40);
+		    rollobut.addActionListener(this);
+		    
+		    haraldbut=new JButton("Harald");
+		    bakgred.add(haraldbut);
+		    haraldbut.setFont(new Font("Constantia",Font.BOLD,14));
+		    haraldbut.setBounds(714, 414, 110, 40);
+		    haraldbut.addActionListener(this);
+		    
+		    
+		    //Buttons class2
+		     bladebut=new JButton("Blade");
+		     bakgred.add(bladebut);
+		     bladebut.setFont(new Font("Constantia",Font.BOLD,14));
+		     bladebut.setBounds(470, 366, 110, 40);
+		     bladebut.addActionListener(this);
+		     
+			 engineerbut=new JButton(" Engineer");
+			 bakgred.add(engineerbut);
+			 engineerbut.setFont(new Font("Constantia",Font.BOLD,14));
+			 engineerbut.setBounds(470, 414, 110, 40);
+			 engineerbut.addActionListener(this);
+			 
+			 unreasonablebut=new JButton("Unreasonable");
+			 bakgred.add(unreasonablebut);
+			 unreasonablebut.setFont(new Font("Constantia",Font.BOLD,11));
+			 unreasonablebut.setBounds(592, 318, 110, 40);
+			 unreasonablebut.addActionListener(this);
+			 
+			 revengebut=new JButton("Revenge");
+			 bakgred.add(revengebut);
+			 revengebut.setFont(new Font("Constantia",Font.BOLD,14));
+			 revengebut.setBounds(470, 270, 110, 40);
+			 revengebut.addActionListener(this);
+			 
+			 intelligencebut=new JButton("Intelligence");
+			 intelligencebut.setFont(new Font("Constantia",Font.BOLD,12));
+			 bakgred.add(intelligencebut);
+			 intelligencebut.setBounds(714, 222, 110, 40);
+			 intelligencebut.addActionListener(this);
+			 
+			 //Buttons class3
+			   scandinaviabut=new JButton("Scandinavia");
+				bakgred.add(scandinaviabut);
+				scandinaviabut.setFont(new Font("Constantia",Font.BOLD,12));
+				scandinaviabut.setBounds(592, 270, 110, 40);
+				scandinaviabut.addActionListener(this);
+				
+				
+			   norwaybut=new JButton("Norway");
+				 bakgred.add(norwaybut);
+				 norwaybut.setFont(new Font("Constantia",Font.BOLD,14));
+				 norwaybut.setBounds(592, 366, 110, 40);
+				 norwaybut.addActionListener(this);
+				 
+			   seabut=new JButton("Sea");
+				 bakgred.add(seabut);
+				 seabut.setFont(new Font("Constantia",Font.BOLD,14));
+				 seabut.setBounds(714, 366, 110, 40);
+				 seabut.addActionListener(this);
+				 
+			   francebut=new JButton("France");
+				 bakgred.add(francebut);
+				 francebut.setFont(new Font("Constantia",Font.BOLD,14));
+				 francebut.setBounds(714, 318, 110, 40);
+				 francebut.addActionListener(this);
+			   
+			   icelandbutt=new JButton("Iceland");
+				 bakgred.add(icelandbutt);
+				 icelandbutt.setFont(new Font("Constantia",Font.BOLD,14));
+				 icelandbutt.setBounds(470, 318, 110, 40);
+				 icelandbutt.addActionListener(this);
+				 
+				 computingbut=new JButton("Computing");
+				 bakgred.add(computingbut);
+				 computingbut.setFont(new Font("Constantia",Font.BOLD,14));
+				 computingbut.setBounds(930, 670, 110, 40);
+				 computingbut.addActionListener(this);
+				 
+				 //textfields---------------------------
+				 analystxt=new JTextField();
+				 analystxt.setBounds(500, 600, 400, 180);
+				 analystxt.setFont(new Font("River Avenue",Font.TYPE1_FONT,19));
+				 analystxt.setEditable(false);
+				
+				 bakgred.add(analystxt);
+				 
+				
+					//iteeem
+			        mainmenu=new JMenuBar();
+					help=new JMenu("Help");
+					help.addActionListener(this);
+					 about=new JMenuItem("About");
+					 about.addActionListener(this);
+					 ragframe.setJMenuBar(mainmenu);
+				   mainmenu.add(help);
+				   help.add(about);
+				   
+				   
+				   
+					
+				 
+		//labels------------------------------------------------
+		bakgred.setBackground(Color.black);
+		bakgred.setBounds(0, 0, 999, 999);
+		bakgred.setHorizontalAlignment(JLabel.CENTER);
+		bakgred.setVerticalAlignment(JLabel.CENTER);
+		bakgred.setOpaque(true);
+		ragframe.add(powerful);
+		powerful.setText(tozih);
+		ragframe.add(bakgred);
+	   
+	
+		
+		
+	    
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) {
+		if(e.getSource()==flokibut) {
+			flokibut.setEnabled(false);
+			analystxt.replaceSelection(flokioption[0]);
+			analystxt.replaceSelection(ragnarst[3]);
+			
+		}
+			
+		if( e.getSource()==engineerbut  ) {
+			analystxt.replaceSelection(flokioption[1]);
+		engineerbut.setEnabled(false);
+		
+		}
+		
+	
+			if( e.getSource()==icelandbutt ) {
+				analystxt.replaceSelection(flokioption[2]);
+				icelandbutt.setEnabled(false);
+				
+			}
+			
+			if( e.getSource()==computingbut  && analystxt.getText().equals("Floki engineer Iceland "))	{
+				sasha +=20;
+				JOptionPane.showMessageDialog(null, "Yes! Floki was an engineer in Iceland ","Floki engineers",JOptionPane.PLAIN_MESSAGE);
+				analystxt.setText("");
+				sasha+=20;
+				party();
+			
+				
+				
+			}
+			if(e.getSource()==ragnarbut) {
+				ragnarbut.setEnabled(false);
+				analystxt.replaceSelection(ragnarst[0]);
+				
+			
+				
+			}
+				
+			if( e.getSource()==intelligencebut  ) {
+				analystxt.replaceSelection(ragnarst[1]);
+				intelligencebut.setEnabled(false);
+				
+			}
+		
+				if( e.getSource()==seabut ) {
+					analystxt.replaceSelection(ragnarst[2]);
+					seabut.setEnabled(false);
+					
+				}
+				if( e.getSource()==computingbut && analystxt.getText().equals("Ragnar intelligence Sea "))	{
+						JOptionPane.showMessageDialog(null, "Yes! Regnar was the smartest Viking man!","Ragnar Lothbrok",JOptionPane.PLAIN_MESSAGE);
+						analystxt.setText("");
+						party();
+						sasha+=20;
+					 
+				}
+				if(e.getSource()==rollobut) {
+					rollobut.setEnabled(false);
+					analystxt.replaceSelection(rollofo[0]);
+					
+				
+					
+				}
+					
+				if( e.getSource()==revengebut  ) {
+					analystxt.replaceSelection(rollofo[1]);
+					revengebut.setEnabled(false);
+					
+				}
+			
+					if( e.getSource()==francebut ) {
+						analystxt.replaceSelection(rollofo[2]);
+						francebut.setEnabled(false);
+						
+					}
+					if( e.getSource()==computingbut && analystxt.getText().equals("Rollo Revenge France "))	{
+							JOptionPane.showMessageDialog(null, "Yes! Rollo took revenge in France! ","Rollo",JOptionPane.PLAIN_MESSAGE);
+							analystxt.setText("");
+							sasha+=20;
+							party();
+				}
+					if(e.getSource()==lagerthabut) {
+						lagerthabut.setEnabled(false);
+						analystxt.replaceSelection(laghertaf[0]);
+						
+					
+						
+					}
+						
+					if( e.getSource()==bladebut  ) {
+						analystxt.replaceSelection(laghertaf[1]);
+						bladebut.setEnabled(false);
+						
+					}
+				
+						if( e.getSource()==scandinaviabut ) {
+							analystxt.replaceSelection(laghertaf[2]);
+							scandinaviabut.setEnabled(false);
+							
+						}
+						if( e.getSource()==computingbut && analystxt.getText().equals("Lagertha Blade Scandinavia "))	{
+								JOptionPane.showMessageDialog(null, "Yes! Lagertha was a Scandinavian swordsman. ","Lagertha is powerful",JOptionPane.PLAIN_MESSAGE);
+								analystxt.setText("");
+								sasha+=20;
+								party();
+						}
+						if(e.getSource()==haraldbut) {
+							haraldbut.setEnabled(false);
+							analystxt.replaceSelection(haraldoo[0]);
+							
+						
+							
+						}
+							
+						if( e.getSource()==unreasonablebut  ) {
+							analystxt.replaceSelection(haraldoo[1]);
+							unreasonablebut.setEnabled(false);
+							
+						}
+					
+							if( e.getSource()==norwaybut ) {
+								analystxt.replaceSelection(haraldoo[2]);
+								norwaybut.setEnabled(false);
+								
+							}
+							if( e.getSource()==computingbut && analystxt.getText().equals("Harald Unreasonable Norway "))	{
+									JOptionPane.showMessageDialog(null, "Yes! The stupid King Harald who ruled Norway! ","King Harald",JOptionPane.INFORMATION_MESSAGE);
+									analystxt.setText("");
+									sasha+=20;
+									party();
+							}
+							if( e.getSource()==about ) {
+								
+								JOptionPane.showMessageDialog(null, "This app is designed for initial testing in Java only \n programmer: HassanNajafi \n U R L : hassannajafi.ir","About",JOptionPane.PLAIN_MESSAGE);
+							}
+						
+						
+	  if( e.getSource()==restart){
+		 engineerbut.setEnabled(true);
+		   ragnarbut.setEnabled(true);
+		  lagerthabut.setEnabled(true);
+		   flokibut.setEnabled(true);
+		   rollobut.setEnabled(true);
+		  haraldbut.setEnabled(true);
+	    	bladebut.setEnabled(true);
+		 engineerbut.setEnabled(true);
+		 unreasonablebut.setEnabled(true);
+		 revengebut.setEnabled(true);
+		  intelligencebut.setEnabled(true);
+	      scandinaviabut.setEnabled(true);
+		  norwaybut.setEnabled(true);
+		  seabut.setEnabled(true);
+		  francebut.setEnabled(true);  
+		  icelandbutt.setEnabled(true);
+	
+		analystxt.setText("");
+		sasha=0;
+		party();
+	  }
+	  }
+	public void party(){
+		if(sasha>100) {
+		JOptionPane.showMessageDialog(null, "Congratulations! You are quite familiar with the Vikings series ","Congratulations!",JOptionPane.PLAIN_MESSAGE);
+	}
+	
+	}
+}
+
+		
+		
+			
+		
+		
+	
+	
+	
+
+
